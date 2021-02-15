@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_one_attached :item_image
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delovery
 
   with_options presence: true do
+    validates :image
     validates :item_name
     validates :item_info
     validates :category_id
