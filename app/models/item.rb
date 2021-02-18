@@ -18,7 +18,7 @@ class Item < ApplicationRecord
     validates :shipping_fee_status_id
     validates :prefecture_id
     validates :scheduled_delovery_id
-    validates :item_price
+    validates :item_price, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
   end
 
   validates :category_id, numericality: { other_than: 1 } 
