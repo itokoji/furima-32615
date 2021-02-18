@@ -64,27 +64,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('User must exist')
       end
       it "カテゴリーが1であれば保存できない" do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it "商品の状態が1であれば保存できない" do
-        @item.sales_status_id = '1'
+        @item.sales_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Sales status must be other than 1")
       end
       it "配送料の負担が1であれば保存できない" do
-        @item.shipping_fee_status_id = '1'
+        @item.shipping_fee_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee status must be other than 1")
       end
       it "発送元の地域が1であれば保存できない" do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it "発送までの日数が1であれば保存できない" do
-        @item.scheduled_delovery_id = '1'
+        @item.scheduled_delovery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Scheduled delovery must be other than 1")
       end
@@ -104,16 +104,15 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item price is not included in the list")
       end
       it "299円以下ではアイテムプライスは保存できない" do
-        @item.item_price = '299'
+        @item.item_price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Item price is not included in the list")
       end
       it "10,000,000以上ではアイテムプライスは保存できない" do
-        @item.item_price = '10000000'
+        @item.item_price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Item price is not included in the list")
       end
-
     end
   end
 end
