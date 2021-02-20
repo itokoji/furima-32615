@@ -127,7 +127,7 @@
     <ul class='item-lists'>
       <% if @items[0] != nil %>
         <li class='list'>
-          <%= @items.each do |item| %>
+          <% @items.each do |item| %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
 
