@@ -73,6 +73,24 @@ RSpec.describe UserItem, type: :model do
         @user_item.valid?
         expect(@user_item.errors.full_messages).to include("Token can't be blank")
       end
+
+      it "電話番号は英数混合だと保存できない" do
+        @user_item.phone_number = '090abcd1234'
+        @user_item.valid?
+        expect(@user_item.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it "user_idがないと保存できない" do
+        @user_item.user_id = ''
+        @user_item.valid?
+        expect(@user_item.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idがないと保存できない" do
+        @user_item.item_id = ''
+        @user_item.valid?
+        expect(@user_item.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
