@@ -63,6 +63,12 @@ RSpec.describe UserItem, type: :model do
         @user_item.valid?
         expect(@user_item.errors.full_messages).to include("Phone number is invalid")
       end
+
+      it "tokenが空では保存できないこと" do
+        @user_item.token = nil
+        @user_item.valid?
+        expect(@user_item.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
