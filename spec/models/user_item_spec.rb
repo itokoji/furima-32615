@@ -13,6 +13,10 @@ RSpec.describe UserItem, type: :model do
       it "全ての情報が存在すれば登録できる" do
         expect(@user_item).to be_valid
       end
+
+      it "buildingがなくても登録ができる" do
+        expect(@user_item).to be_valid
+      end
     end
 
     context "購入の保存がうまくいかないとき" do
