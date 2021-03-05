@@ -15,6 +15,7 @@ RSpec.describe UserItem, type: :model do
       end
 
       it "buildingがなくても登録ができる" do
+        @user_item.building = nil
         expect(@user_item).to be_valid
       end
     end
